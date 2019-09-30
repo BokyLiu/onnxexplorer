@@ -66,6 +66,17 @@ attribute {
 
 ```
 
+function to be add:
+
+- [ ] List all op type used in this model;
+- [ ] Estimate on this model, whether it can optimize or can convert to TensorRT engine;
+
+
+
+## Update
+
+- **2019.09.30**: First released this package;
+
 
 
 ## Install

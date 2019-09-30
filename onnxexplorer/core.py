@@ -37,7 +37,7 @@ def search_nodes_by_type(model, type_name):
     :param type_name:
     :return:
     """
-    print(Style.BRIGHT + 'search node by ID: ' + Style.RESET_ALL + Fore.GREEN + type_name + Style.RESET_ALL)
+    print(Style.BRIGHT + 'search node by op type: ' + Style.RESET_ALL + Fore.GREEN + type_name + Style.RESET_ALL)
     if isinstance(model, ModelProto):
         graph = model.graph
         i = 0

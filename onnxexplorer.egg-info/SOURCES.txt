@@ -1,0 +1,10 @@
+setup.py
+onnxexplorer/core.py
+onnxexplorer/onnxexplorer.py
+onnxexplorer.egg-info/PKG-INFO
+onnxexplorer.egg-info/SOURCES.txt
+onnxexplorer.egg-info/dependency_links.txt
+onnxexplorer.egg-info/entry_points.txt
+onnxexplorer.egg-info/requires.txt
+onnxexplorer.egg-info/top_level.txt
+onnxexplorer/proto/onnx_ml_pb2.py

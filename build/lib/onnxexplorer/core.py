@@ -48,7 +48,7 @@ def search_nodes_by_type(model, type_name):
         print(Style.BRIGHT + 'listed all {} {} nodes in detail.\n'.format(i, type_name) + Style.RESET_ALL)
 
 
-def list_nodes(model):
+def list_nodes(model_proto):
     """
     print out all nodes
     :param model_proto:
@@ -65,16 +65,14 @@ def list_nodes(model):
 
 
 
-def list_nodes_hl(model):
+def list_nodes_hl(model_proto):
     print(Style.BRIGHT + 'start list nodes all:' + Style.RESET_ALL)
     if isinstance(model, ModelProto):
         graph = model.graph
         i = 0
         for node in graph.node:
-            if node.attribute.raw_data != None:
-                node.attribute.raw_data = 'too long ignore it...'
-                print(node)
-                i += 1
+            print(node)
+            i += 1
         print(Style.BRIGHT + 'listed all {} nodes in detail.\n'.format(i) + Style.RESET_ALL)
 
 

@@ -77,13 +77,13 @@ onnxexp model.onnx ls
         parser = argparse.ArgumentParser(
             description='ls at any level about the model.')
         # prefixing the argument with -- means it's optional
-        parser.add_argument('-hl', action='store_true')
+        parser.add_argument('--hl', action='store_true')
         args = parser.parse_args(sys.argv[3:])
         print('Running onnxexp ls, hl=%s' % args.hl)
         if args.hl:
-            list_nodes_hl(self.model_proto)
-        else:
             list_nodes(self.model_proto)
+        else:
+            list_nodes_hl(self.model_proto)
 
     def search(self):
         parser = argparse.ArgumentParser(

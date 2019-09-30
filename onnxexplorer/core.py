@@ -42,7 +42,7 @@ def search_nodes_by_type(model, type_name):
         graph = model.graph
         i = 0
         for node in graph.node:
-            if node.op_type == type_name:
+            if type_name in node.op_type:
                 i += 1
                 print(node)
         print(Style.BRIGHT + 'listed all {} {} nodes in detail.\n'.format(i, type_name) + Style.RESET_ALL)
@@ -90,7 +90,7 @@ def search_node_by_id(model, node_id):
         graph = model.graph
         i = 0
         for node in graph.node:
-            if node.name == node_id:
+            if node_id in node.name:
                 i += 1
                 print(node)
         print(Style.BRIGHT + 'listed all {} nodes in detail.\n'.format(i) + Style.RESET_ALL)

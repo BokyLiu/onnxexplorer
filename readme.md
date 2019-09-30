@@ -2,43 +2,59 @@
 
 **code under construction, full functionality will be ready soon**
 
-*ONNX 浏览器** is an easy way to explore your onnx model. You can simply do these function in a onnx model very quickly:
+**ONNX 浏览器** is an easy way to explore your onnx model. You can simply do these function in a onnx model very quickly:
 
-- `onnxexplorer model.onnx -ls`:  list all nodes inside onnx model;
-- `onnxexplorer model.onnx `: this will gives u a quick onnx model summary;
-- `onnxexplorer model.onnx -s '123424'`: search and print out a single node index by name;
+```
+usage: onnxexp <command> [<args>]
+
+The most commonly used onnxexp commands are:
+   ls          ls all model nodes
+   search      search and print out certain commands
+   summary     print out model summary
+
+i.e.:
+onnxexp model.onnx search -t 'Slice'
+onnxexp model.onnx search -n '342654'
+onnxexp model.onnx ls -hl
+onnxexp model.onnx ls
+```
+
+
 
 Here are some experiments on `resnet50.onnx` model:
 
 ```
-ONNX model sum on: model.onnx
-
-
--------------------------------------------
-ir version: 3
-opset_import: 9 
-producer_name: onnx-caffe2
-doc_string: 
--------------------------------------------
-
-start list nodes all:
-input: "gpu_0/data_0"
-input: "gpu_0/conv1_w_0"
-output: "gpu_0/conv1_1"
-name: ""
+$ onnxexp ../onnx_deploy/models/retinaface_mbv2_sim.onnx search -t 'Conv' 
+Exploring on onnx model: ../onnx_deploy/models/retinaface_mbv2_sim.onnx
+search node by ID: Conv
+input: "input.1"
+input: "531"
+input: "533"
+output: "301"
 op_type: "Conv"
 attribute {
-  name: "pads"
-  ints: 3
-  ints: 3
+  name: "dilations"
+  ints: 1
+  ints: 1
+  type: INTS
+}
+attribute {
+  name: "group"
+  i: 1
+  type: INT
+}
+attribute {
+  name: "kernel_shape"
   ints: 3
   ints: 3
   type: INTS
 }
 attribute {
-  name: "kernel_shape"
-  ints: 7
-  ints: 7
+  name: "pads"
+  ints: 1
+  ints: 1
+  ints: 1
+  ints: 1
   type: INTS
 }
 attribute {
@@ -48,15 +64,6 @@ attribute {
   type: INTS
 }
 
-.....
-input: "gpu_0/pred_1"
-output: "gpu_0/softmax_1"
-name: ""
-op_type: "Softmax"
-
-listed all 176 nodes in detail.
-
-Done!
 ```
 
 
@@ -67,6 +74,12 @@ to install *onnxexplorer*, you can do:
 
 ```
 sudo pip3 install onnxexplorer
+```
+
+Or if pip not available:
+
+```
+sudo python3 setup.py install
 ```
 
 

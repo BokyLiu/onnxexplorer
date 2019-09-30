@@ -9,5 +9,5 @@ sudo rm -r dist/
 # python3 setup.py sdist upload -r pypi
 
 # using twine instead
-python3 setup.py sdist
+sudo python3 setup.py sdist
 twine upload dist/*

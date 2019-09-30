@@ -1,2 +1,5 @@
 env/
 .vscode/
+build/
+onnxexplorer.egg-info/
+dist/

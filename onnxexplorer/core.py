@@ -73,15 +73,15 @@ def list_nodes_hl(model):
         graph = model.graph
         i = 0
         for node in graph.node:
-            if node.attribute[0].t.raw_data != None:
+            if len(node.attribute) > 0 and node.attribute[0].t.raw_data != None:
                 data_type = node.attribute[0].t.data_type
                 if data_type == 7:
                     raw_data = np.frombuffer(node.attribute[0].t.raw_data, dtype=np.int64)
                 elif data_type == 1:
-                    raw_data = np.frombuffer(node.attribute[0].t.raw_data, dtype=np.flaot32)
+                    raw_data = np.frombuffer(node.attribute[0].t.raw_data, dtype=np.float32)
                 else:
                     raw_data = np.frombuffer(node.attribute[0].t.raw_data, dtype=np.int64)
-                print('[raw data that encoded inside this node: {}]'.format(raw_data))
+                print('|raw data that encoded inside this node: {}|'.format(raw_data))
             print(node)
             i += 1
         print(Style.BRIGHT + 'listed all {} nodes in detail.\n'.format(i) + Style.RESET_ALL)

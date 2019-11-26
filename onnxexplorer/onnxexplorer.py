@@ -26,6 +26,7 @@ import os
 import sys
 import argparse
 import onnxruntime as ort
+import onnx
 # import onnx
 # from onnx.onnx_ml_pb2 import ModelProto
 from .proto.onnx_ml_pb2 import ModelProto, TensorProto, NodeProto
@@ -61,7 +62,8 @@ onnxexp model.onnx ls
         if args.model != None and os.path.exists(args.model):
             print(Style.BRIGHT + 'Exploring on onnx model: ' +
                   Style.RESET_ALL + Fore.GREEN + self.model_path + Style.RESET_ALL)
-            self.model_proto = load_onnx_model(self.model_path, ModelProto())
+            # self.model_proto = load_onnx_model(self.model_path, ModelProto())
+            self.model_proto = onnx.load(self.model_path)
             if not hasattr(self, args.command):
                 # summary
                 print('unrecognized command.')
